@@ -284,8 +284,8 @@ export class VertFile {
 			const baseName = this.file.name.replace(/\.[^/.]+$/, "");
 			const originalExtension = this.file.name.split(".").pop()!;
 			return name
-				.replace(/%datetime%/g, fullIso)
-				.replace(/%date%/g, dateOnly)
+				.replace(/%shortdate%/g, dateOnly)
+				.replace(/%date%/g, fullIso)
 				.replace(/%name%/g, baseName)
 				.replace(/%extension%/g, originalExtension);
 		};
