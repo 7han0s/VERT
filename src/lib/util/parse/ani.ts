@@ -124,14 +124,14 @@ export function parseAni(arr: Uint8Array): ParsedAni {
 						arr,
 						c.chunkData.start,
 						c.chunkData.end,
-					);
+					) || null;
 					break;
 				case "IART":
 					artist = unpackString(
 						arr,
 						c.chunkData.start,
 						c.chunkData.end,
-					);
+					) || null;
 					break;
 				case "LIST":
 					// Some cursors with an artist of "Created with Take ONE 3.5 (unregisterred version)" seem to have their frames here for some reason?

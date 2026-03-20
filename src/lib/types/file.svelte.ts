@@ -278,11 +278,14 @@ export class VertFile {
 		const filenameFormat = settings.filenameFormat || "VERT_%name%";
 
 		const format = (name: string) => {
-			const date = new Date().toISOString();
+			const now = new Date();
+			const fullIso = now.toISOString();
+			const dateOnly = fullIso.split('T')[0]; // Result: YYYY-MM-DD
 			const baseName = this.file.name.replace(/\.[^/.]+$/, "");
 			const originalExtension = this.file.name.split(".").pop()!;
 			return name
-				.replace(/%date%/g, date)
+				.replace(/%datetime%/g, fullIso)
+				.replace(/%date%/g, dateOnly)
 				.replace(/%name%/g, baseName)
 				.replace(/%extension%/g, originalExtension);
 		};
